@@ -1,10 +1,11 @@
 _64
-cscope\.*
-*\.log
-*\.vim
+cscope.*
+*.log
+*.vim
 wget-log
 *.o
 tags
 Main_64
 core.*
 core
+*.log
