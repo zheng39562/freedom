@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package proto_world;
+
+message Position{
+	int32 x = 1;
+	int32 y = 2;
+}
+
+message PieceOfLand{
+	Position pos = 1;
+	int32 pos_matter_type = 4 [default = 0];	//! 
+}
+
