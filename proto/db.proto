@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package fr_proto_db;
+
+enum eDBErrNo{
+	eDBErrNo_Undefine = 0;	// un defined err
+}
+
+message CommonField{
+	optional string key = 1;
+	optional string value = 2;
+}
+
+enum eSqlCmdType{
+	eSqlCmdType_Query = 1;
+	eSqlCmdType_Create = 2;
+	eSqlCmdType_Update = 3;
+	eSqlCmdType_Delete = 4;
+}
+message SqlRequest{
+	optional string command = 1;
+	optional eSqlCmdType cmd_type = 2; 
+}
+
+message SqlResponse{
+	repeated CommonField fields = 1;
+	optional eDBErrNo err_no = 2;
+}
+
