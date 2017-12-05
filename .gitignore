@@ -10,4 +10,5 @@ core
 *.log
 build/
 out/
+.freedom_config/
 

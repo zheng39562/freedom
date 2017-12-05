@@ -1,0 +1,28 @@
+syntax="proto3";
+
+option cc_generic_services = true;
+
+package freedom.world;
+
+message Position{
+	int32 x = 1;
+	int32 y = 2;
+}
+
+message PieceOfLand{
+	Position pos = 1;
+	int32 pos_matter_type = 4;
+}
+
+message Req{
+	string message = 1;
+}
+
+message Res{
+	string message = 1;
+}
+
+service WorldServiceInterface{
+	rpc Echo(Req) returns (Res);
+};
+

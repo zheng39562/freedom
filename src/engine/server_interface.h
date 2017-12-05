@@ -1,17 +1,14 @@
 /**********************************************************
- *  \file world_position.cpp
+ *  \file server_interface.h
  *  \brief
  *  \note	注意事项： 
  * 
  * \version 
  * * \author zheng39562@163.com
 **********************************************************/
-#include "world_position.h"
+#ifndef _server_interface_H
+#define _server_interface_H
 
-PositionAttribute::PositionAttribute(Coordinate x, Coordinate y, Coordinate z)
-	:x_(x),
-	 y_(y),
-	 z_(z)
-{ 
-	; 
-}
+
+#endif 
+

@@ -10,16 +10,33 @@
 #define _world_position_H
 
 namespace world{
-namespace base_world{
-	class LandLayer{
+
+	class PositionAttribute
+	{
 		public:
-			LandLayer();
-			~LandLayer();
+			PositionAttribute(Coordinate x, Coordinate y, Coordinate z);
+			~PositionAttribute()=default;
+		public:
+			Coordinate x()const{ return x_; }
+			Coordinate y()const{ return y_; }
+			Coordinate z()const{ return z_; }
+
+		private:
+			Coordinate x_;
+			Coordinate y_;
+			Coordinate z_;
+	};
+
+	//! \brief	主大陆
+	//! \note	初步设计内：大陆以一个整体存在。
+	class Mainland{
+		public:
+			Mainland();
+			~Mainland();
 		private:
 	};
-}
-}
 
+} // world
 
 #endif 
 
