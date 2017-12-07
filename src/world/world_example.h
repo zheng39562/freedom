@@ -1,16 +1,19 @@
 /**********************************************************
- *  \file server_interface.h
+ *  \file world_example.h
  *  \brief
  *  \note	注意事项： 
  * 
  * \version 
  * * \author zheng39562@163.com
 **********************************************************/
-#ifndef _server_interface_H
-#define _server_interface_H
+#ifndef _world_example_H
+#define _world_example_H
 
-namespace freedom{
-} // namespace freedom{
+//! \brief	
+//! \param[in]	
+//	[1] : ip
+//	[2] : port
+int main(int argc, char* argv[]);
 
 #endif 
 

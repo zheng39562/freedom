@@ -508,16 +508,16 @@ class Res : public ::google::protobuf::Message /* @@protoc_insertion_point(class
 };
 // ===================================================================
 
-class WorldServiceInterface_Stub;
+class IWorldService_Stub;
 
-class WorldServiceInterface : public ::google::protobuf::Service {
+class IWorldService : public ::google::protobuf::Service {
  protected:
   // This class should be treated as an abstract interface.
-  inline WorldServiceInterface() {};
+  inline IWorldService() {};
  public:
-  virtual ~WorldServiceInterface();
+  virtual ~IWorldService();
 
-  typedef WorldServiceInterface_Stub Stub;
+  typedef IWorldService_Stub Stub;
 
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
@@ -540,19 +540,19 @@ class WorldServiceInterface : public ::google::protobuf::Service {
     const ::google::protobuf::MethodDescriptor* method) const;
 
  private:
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(WorldServiceInterface);
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(IWorldService);
 };
 
-class WorldServiceInterface_Stub : public WorldServiceInterface {
+class IWorldService_Stub : public IWorldService {
  public:
-  WorldServiceInterface_Stub(::google::protobuf::RpcChannel* channel);
-  WorldServiceInterface_Stub(::google::protobuf::RpcChannel* channel,
+  IWorldService_Stub(::google::protobuf::RpcChannel* channel);
+  IWorldService_Stub(::google::protobuf::RpcChannel* channel,
                    ::google::protobuf::Service::ChannelOwnership ownership);
-  ~WorldServiceInterface_Stub();
+  ~IWorldService_Stub();
 
   inline ::google::protobuf::RpcChannel* channel() { return channel_; }
 
-  // implements WorldServiceInterface ------------------------------------------
+  // implements IWorldService ------------------------------------------
 
   void Echo(::google::protobuf::RpcController* controller,
                        const ::freedom::world::Req* request,
@@ -561,7 +561,7 @@ class WorldServiceInterface_Stub : public WorldServiceInterface {
  private:
   ::google::protobuf::RpcChannel* channel_;
   bool owns_channel_;
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(WorldServiceInterface_Stub);
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(IWorldService_Stub);
 };
 
 

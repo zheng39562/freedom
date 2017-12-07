@@ -200,12 +200,12 @@ void AddDescriptorsImpl() {
       "\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\"L\n\013PieceOfLand\022$\n"
       "\003pos\030\001 \001(\0132\027.freedom.world.Position\022\027\n\017p"
       "os_matter_type\030\004 \001(\005\"\026\n\003Req\022\017\n\007message\030\001"
-      " \001(\t\"\026\n\003Res\022\017\n\007message\030\001 \001(\t2G\n\025WorldSer"
-      "viceInterface\022.\n\004Echo\022\022.freedom.world.Re"
-      "q\032\022.freedom.world.ResB\003\200\001\001b\006proto3"
+      " \001(\t\"\026\n\003Res\022\017\n\007message\030\001 \001(\t2\?\n\rIWorldSe"
+      "rvice\022.\n\004Echo\022\022.freedom.world.Req\032\022.free"
+      "dom.world.ResB\003\200\001\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 274);
+      descriptor, 266);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "world.proto", &protobuf_RegisterTypes);
 }
@@ -1307,18 +1307,18 @@ void Res::InternalSwap(Res* other) {
 
 // ===================================================================
 
-WorldServiceInterface::~WorldServiceInterface() {}
+IWorldService::~IWorldService() {}
 
-const ::google::protobuf::ServiceDescriptor* WorldServiceInterface::descriptor() {
+const ::google::protobuf::ServiceDescriptor* IWorldService::descriptor() {
   protobuf_world_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_world_2eproto::file_level_service_descriptors[0];
 }
 
-const ::google::protobuf::ServiceDescriptor* WorldServiceInterface::GetDescriptor() {
+const ::google::protobuf::ServiceDescriptor* IWorldService::GetDescriptor() {
   return descriptor();
 }
 
-void WorldServiceInterface::Echo(::google::protobuf::RpcController* controller,
+void IWorldService::Echo(::google::protobuf::RpcController* controller,
                          const ::freedom::world::Req*,
                          ::freedom::world::Res*,
                          ::google::protobuf::Closure* done) {
@@ -1326,7 +1326,7 @@ void WorldServiceInterface::Echo(::google::protobuf::RpcController* controller,
   done->Run();
 }
 
-void WorldServiceInterface::CallMethod(const ::google::protobuf::MethodDescriptor* method,
+void IWorldService::CallMethod(const ::google::protobuf::MethodDescriptor* method,
                              ::google::protobuf::RpcController* controller,
                              const ::google::protobuf::Message* request,
                              ::google::protobuf::Message* response,
@@ -1345,7 +1345,7 @@ void WorldServiceInterface::CallMethod(const ::google::protobuf::MethodDescripto
   }
 }
 
-const ::google::protobuf::Message& WorldServiceInterface::GetRequestPrototype(
+const ::google::protobuf::Message& IWorldService::GetRequestPrototype(
     const ::google::protobuf::MethodDescriptor* method) const {
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
@@ -1358,7 +1358,7 @@ const ::google::protobuf::Message& WorldServiceInterface::GetRequestPrototype(
   }
 }
 
-const ::google::protobuf::Message& WorldServiceInterface::GetResponsePrototype(
+const ::google::protobuf::Message& IWorldService::GetResponsePrototype(
     const ::google::protobuf::MethodDescriptor* method) const {
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
@@ -1371,18 +1371,18 @@ const ::google::protobuf::Message& WorldServiceInterface::GetResponsePrototype(
   }
 }
 
-WorldServiceInterface_Stub::WorldServiceInterface_Stub(::google::protobuf::RpcChannel* channel)
+IWorldService_Stub::IWorldService_Stub(::google::protobuf::RpcChannel* channel)
   : channel_(channel), owns_channel_(false) {}
-WorldServiceInterface_Stub::WorldServiceInterface_Stub(
+IWorldService_Stub::IWorldService_Stub(
     ::google::protobuf::RpcChannel* channel,
     ::google::protobuf::Service::ChannelOwnership ownership)
   : channel_(channel),
     owns_channel_(ownership == ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}
-WorldServiceInterface_Stub::~WorldServiceInterface_Stub() {
+IWorldService_Stub::~IWorldService_Stub() {
   if (owns_channel_) delete channel_;
 }
 
-void WorldServiceInterface_Stub::Echo(::google::protobuf::RpcController* controller,
+void IWorldService_Stub::Echo(::google::protobuf::RpcController* controller,
                               const ::freedom::world::Req* request,
                               ::freedom::world::Res* response,
                               ::google::protobuf::Closure* done) {

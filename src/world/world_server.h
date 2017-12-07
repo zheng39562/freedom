@@ -19,7 +19,7 @@ extern "C"{
 namespace freedom{
 namespace world{
 
-class WorldService : public WorldServiceInterface{
+class WorldService : public IWorldService{
 	public:
 		WorldService();
 		virtual ~WorldService();

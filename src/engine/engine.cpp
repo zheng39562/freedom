@@ -44,6 +44,7 @@ bool Engine::Run(const std::string& dll_name, const std::string& ip, int port){
 		DEBUG_E("Error : dlerror -> [" << dl_error << "]");
 		return false;
 	}
+	DEBUG_D("Load dll [" << lib_dll_name << "]");
 
 	CreateServerImplFunc create_server_impl_func = (CreateServerImplFunc)dlsym(dl_handle_, "CreateServerImpl");
 	dl_error = dlerror(); 
@@ -55,14 +56,15 @@ bool Engine::Run(const std::string& dll_name, const std::string& ip, int port){
 	}
 
 	service_ = create_server_impl_func();
-	if(service_ == NULL){
-		DEBUG_D("add service... ");
-		if(!server_.AddService(service_, brpc::SERVER_DOESNT_OWN_SERVICE)){
+	if(service_ != NULL){
+		DEBUG_D("Add service... ");
+		if(server_.AddService(service_, brpc::SERVER_DOESNT_OWN_SERVICE) != 0){
 			DEBUG_E("Fail to add service.");
 			return false;
 		}
 
 		string ip_port = ip + ":" + to_string(port);
+		DEBUG_D(" Start Server : " << ip_port);
 		if(server_.Start(ip_port.c_str(), &options_) != 0){
 			DEBUG_E("Fail to start server.");
 			return false;
