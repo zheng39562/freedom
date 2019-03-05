@@ -525,6 +525,10 @@ class IWorldService : public ::google::protobuf::Service {
                        const ::freedom::world::Req* request,
                        ::freedom::world::Res* response,
                        ::google::protobuf::Closure* done);
+  virtual void Move(::google::protobuf::RpcController* controller,
+                       const ::freedom::world::Req* request,
+                       ::freedom::world::Res* response,
+                       ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
 
@@ -555,6 +559,10 @@ class IWorldService_Stub : public IWorldService {
   // implements IWorldService ------------------------------------------
 
   void Echo(::google::protobuf::RpcController* controller,
+                       const ::freedom::world::Req* request,
+                       ::freedom::world::Res* response,
+                       ::google::protobuf::Closure* done);
+  void Move(::google::protobuf::RpcController* controller,
                        const ::freedom::world::Req* request,
                        ::freedom::world::Res* response,
                        ::google::protobuf::Closure* done);

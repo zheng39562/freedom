@@ -200,12 +200,13 @@ void AddDescriptorsImpl() {
       "\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\"L\n\013PieceOfLand\022$\n"
       "\003pos\030\001 \001(\0132\027.freedom.world.Position\022\027\n\017p"
       "os_matter_type\030\004 \001(\005\"\026\n\003Req\022\017\n\007message\030\001"
-      " \001(\t\"\026\n\003Res\022\017\n\007message\030\001 \001(\t2\?\n\rIWorldSe"
+      " \001(\t\"\026\n\003Res\022\017\n\007message\030\001 \001(\t2o\n\rIWorldSe"
       "rvice\022.\n\004Echo\022\022.freedom.world.Req\032\022.free"
-      "dom.world.ResB\003\200\001\001b\006proto3"
+      "dom.world.Res\022.\n\004Move\022\022.freedom.world.Re"
+      "q\032\022.freedom.world.ResB\003\200\001\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 266);
+      descriptor, 314);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "world.proto", &protobuf_RegisterTypes);
 }
@@ -1326,6 +1327,14 @@ void IWorldService::Echo(::google::protobuf::RpcController* controller,
   done->Run();
 }
 
+void IWorldService::Move(::google::protobuf::RpcController* controller,
+                         const ::freedom::world::Req*,
+                         ::freedom::world::Res*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method Move() not implemented.");
+  done->Run();
+}
+
 void IWorldService::CallMethod(const ::google::protobuf::MethodDescriptor* method,
                              ::google::protobuf::RpcController* controller,
                              const ::google::protobuf::Message* request,
@@ -1335,6 +1344,12 @@ void IWorldService::CallMethod(const ::google::protobuf::MethodDescriptor* metho
   switch(method->index()) {
     case 0:
       Echo(controller,
+             ::google::protobuf::down_cast<const ::freedom::world::Req*>(request),
+             ::google::protobuf::down_cast< ::freedom::world::Res*>(response),
+             done);
+      break;
+    case 1:
+      Move(controller,
              ::google::protobuf::down_cast<const ::freedom::world::Req*>(request),
              ::google::protobuf::down_cast< ::freedom::world::Res*>(response),
              done);
@@ -1351,6 +1366,8 @@ const ::google::protobuf::Message& IWorldService::GetRequestPrototype(
   switch(method->index()) {
     case 0:
       return ::freedom::world::Req::default_instance();
+    case 1:
+      return ::freedom::world::Req::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::google::protobuf::MessageFactory::generated_factory()
@@ -1363,6 +1380,8 @@ const ::google::protobuf::Message& IWorldService::GetResponsePrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
+      return ::freedom::world::Res::default_instance();
+    case 1:
       return ::freedom::world::Res::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -1387,6 +1406,13 @@ void IWorldService_Stub::Echo(::google::protobuf::RpcController* controller,
                               ::freedom::world::Res* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0),
+                       controller, request, response, done);
+}
+void IWorldService_Stub::Move(::google::protobuf::RpcController* controller,
+                              const ::freedom::world::Req* request,
+                              ::freedom::world::Res* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
 

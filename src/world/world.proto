@@ -24,5 +24,6 @@ message Res{
 
 service IWorldService{
 	rpc Echo(Req) returns (Res);
+	rpc Move(Req) returns (Res);
 };
 
